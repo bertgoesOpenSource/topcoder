@@ -1,0 +1,15 @@
+using namespace std;
+
+
+struct TheBoredomDivTwo{
+int result;
+int find(int n, int m, int j, int b){
+if(j>n)
+result++;
+if(b>n)
+result++;
+return result+n;
+}
+
+
+};

@@ -1,0 +1,21 @@
+#include <cmath>
+#include <string>
+
+using namespace std;
+
+struct NumberMagicEasy{
+
+
+int theNumber(string answer){
+
+int sum=0;
+int l=answer.length();
+for(int i=0;i<l;i++){
+	if(answer[i]=='N') sum+=pow(2.0,3-i);
+	
+}
+return sum+1;
+
+}
+
+};
