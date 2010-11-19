@@ -1,0 +1,32 @@
+#include <cmath>
+#include <iostream>
+using namespace std;
+
+int R(long int num){
+int length = log10(num);
+
+int sum=0;
+for(int i=length;i>0;i--){
+int tens=pow(10.0,i);
+sum+=num/tens;
+cout<<num<<endl;
+num%=tens;
+}
+return sum;
+
+}
+
+
+struct RabbitNumber{
+
+int theCount(int low, int high){
+int result=0;
+for(int i=low;i<=high;i++){
+long int i2=i*i;
+if((R(i)*R(i))==R(i2))result++;
+}
+return result;
+}
+
+
+};
