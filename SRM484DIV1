@@ -1,6 +1,45 @@
 #include <cmath>
 #include <iostream>
+#include<vector>
+#include <string>
 using namespace std;
+string num2str(int num){
+string result="";
+int l=log10(num);
+for(int i=l;i>0;i++){
+
+result+= num/pow(10.0,l);
+num/=pow(10.0,l);
+}
+return result;
+}
+
+string shift_l(string a,int i,int l){
+
+
+
+}
+
+int M(int num){
+vector <string> N;
+string m=num2str(num);
+string content="";
+int l = log10(num);
+for(int i=0;i<2*l;i++){
+content+="0";
+} //"000...000"
+
+
+
+for(int i=0;i<l;i++){
+N[i]=shift_l(num2str(atoi(m[i])*num),i,2*l);
+
+
+
+N.push_back(m);
+}
+
+}
 
 int R(long int num){
 int length = log10(num);
