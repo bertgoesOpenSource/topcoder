@@ -1,0 +1,53 @@
+#include<vector>
+#include <iostream>
+using namespace std;
+
+int sum(vector <int> q){
+int l=q.size();
+int s=0;
+for(int i=0;i<l;i++)
+s+=q[i];
+return s;
+}
+
+struct Badgers{
+
+int feedMost(vector <int> hunger, vector <int> greed, int totalFood){
+int hun_s=hunger.size();
+int curTotal=0;
+vector<int> cur_hun,cur_gre; //store current queue;
+cur_hun=hunger;
+cur_gre=greed;
+int cnt = hun_s;
+while(cnt>=0){
+if(sum(cur_hun)+cnt*sum(cur_gre)>totalFood){
+//remove most pair
+cnt--;
+int max=0;
+int curSum=0;
+int cur_s = cur_hun.size();
+
+
+for(int i=0;i<cur_s;i++){
+curSum=cur_hun[i]+cur_gre[i];
+if(curSum>max) max=curSum;
+
+}
+for(int i=0;i<cur_s;i++){
+if(cur_hun[i]+cur_gre[i]==max){
+cur_hun.erase(cur_hun.begin()+i);
+cur_gre.erase(cur_gre.begin()+i);
+break;
+}
+}
+
+
+}
+else
+break;
+
+
+}
+return cnt+1;
+}
+};

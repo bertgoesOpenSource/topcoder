@@ -1,0 +1,44 @@
+#include<vector>
+#include <string>
+#include <iostream>
+using namespace std;
+
+bool find(vector <string> s,int row,int num){
+for(int i=0;i<row;i++){
+
+if((s[i].find((char)num+48))!=string::npos)return true;
+}
+return false;
+}
+
+struct MatrixShiftings{
+int minimumShifts(vector <string> mat, int val){
+int row = mat.size();
+int col = mat[0].size();
+int curCol = -1;
+int curRow = -1;
+if(!find(mat,row,val)){cout<<"not found"<<endl; return -1;}
+
+for(int i=0;i<row;i++){
+curCol = mat[i].find_last_of((char)val+48);
+if(curCol>=0){curRow = i;break;}
+}
+int result=0;
+int halfRow = row/2;
+int halfCol = col/2;
+cout<<col<<endl;
+cout<<curCol<<endl;
+cout<<row<<endl;
+cout<<curRow<<endl;
+if(curCol>halfCol) result+=col-curCol;
+else if(curCol<=halfCol) result+=curCol;
+if(curRow>halfRow)result+=row-curRow;
+else if(curRow<=halfRow) result+=curRow;
+
+
+
+return result;
+
+}
+
+};
